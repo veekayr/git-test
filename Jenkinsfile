@@ -3,12 +3,15 @@ pipeline {
     stages {
         stage('One') {
                 steps {
-                        echo 'Hi, this is Zulaikha from edureka'
-			
+                        echo 'clone git repo'
+                        git(
+                                url: 'https://github.com/veekayr/AnsibleforTest.git',
+                                credentialsId: '8edaf37d-5efc-46e8-893f-ab41ea1ca9ef',
+                                branch: "master"
+                        )
                 }
         }
 	    stage('Two'){
-		    
 		steps {
 			input('Do you want to proceed?')
         }
@@ -34,7 +37,6 @@ pipeline {
 				steps {
 					echo 'Running the integration test..'
 				}
-                               
 			}  }
         }
     }
