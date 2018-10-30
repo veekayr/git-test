@@ -5,13 +5,14 @@ pipeline {
                 steps {
                         echo 'clone git repo'
                         git(
-                                url: 'https://github.com/veekayr/AnsibleforTest.git',
-                                credentialsId: '8edaf37d-5efc-46e8-893f-ab41ea1ca9ef',
+                                url: 'https://wwwin-github.cisco.com/webex-iaas/ansible-tower.git',
+                                credentialsId: 'cisco_cec',
                                 branch: "master"
                         )
                         sh '''
                           pip install ansible-lint
-                          ansible-lint installNginx.yaml
+                          pip install ansible
+                          ansible-playbook Ansible-Jenkins/createTestVM_Linting.yml
                         '''
                 }
         }
