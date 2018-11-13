@@ -12,7 +12,7 @@ pipeline {
                         sh '''
                           pip install ansible-lint
                           pip install ansible
-                          ansible-playbook Ansible-Jenkins/createTestVM_Linting.yml
+                          ansible-playbook Ansible-Jenkins/createTestVM_Linting.yml 
                         '''
                 }
         }
